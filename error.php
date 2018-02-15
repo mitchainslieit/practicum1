@@ -6,7 +6,6 @@ session_start();
 <html>
 <head>
   <title>Login Failed!</title>
-  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="error-fail">
@@ -20,7 +19,6 @@ session_start();
     endif;
     ?>
     </p>     
-    <a href="admin.php"><button class="btn btn-primary btn-block btn-large"/>Back</button></a>
 </div>
 </body>
 </html>
