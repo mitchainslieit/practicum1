@@ -7,7 +7,7 @@ $result = $mysqli->query("SELECT * FROM accounts WHERE idno='$idno'");
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that email doesn't exist!";
-    header("location: error.php");
+    header("location: scripts/error.php");
 }
 else { // User exists
     $user = $result->fetch_assoc();
@@ -20,14 +20,19 @@ else { // User exists
         // This is how we'll know the user is logged in
         $_SESSION['logged_in'] = true;
 		if ( $_SESSION['type'] == 0 ) {
+            $_SESSION['type'] = 0;
 			header("location: admin.php");
+            exit();
 		} else {
+            $_SESSION['type'] = 1;
 		    header("location: faculty.php");
+            exit();
 		}
     }
     else {
         $_SESSION['message'] = "You have entered wrong password, try again!";
-        header("location: error.php");
+        header("location: scripts/error.php");
+        exit();
     }
 }
 ?>
